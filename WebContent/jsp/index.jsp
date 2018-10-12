@@ -36,12 +36,11 @@
 
  <%= session.getAttribute("intentosArray")%> <br>
 
+<% Intento intent = (Intento)request.getAttribute("intent"); %>
 
+<p>VALOR DE --fechaHora=====> <%= intent.getFechaHora()%></p><br/>
 
-
-
-
-
+<p>VALOR DE --numeroJugado==> <%= intent.getNumeroJugado()%></p><br/>
 
 </body>
 </html>

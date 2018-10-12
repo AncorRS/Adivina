@@ -41,7 +41,7 @@ public class Control extends HttpServlet {
 	try {
 		if(re.getParameter("num1") == null)
 		{
-	     String op = "2";
+	     String op = "";
 	     
 		}
 		else
@@ -95,7 +95,7 @@ if(op1<20) {
 	
 	
 	
-	//re.setAttribute("intent", intent);
+	re.setAttribute("intent", intent);
 	
 	
 	
