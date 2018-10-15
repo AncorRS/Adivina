@@ -29,6 +29,7 @@
 
 <!-- NECESITAMOS IMPORTAR EL REQUEST("request") !!!!OJO SOLO FUNCIONA CON ("request") !!PALABRA RESERVADA!!!, ASIGNARLO A UNA NUEVA VARIABLE Y LUEGO ASIGNARLE EL METODO DEL BEAN "Intento" -->
 <% Intento intent = (Intento)request.getAttribute("intent"); %>
+
 <p>EL NUMERO CORRECTO ES: <%= intent.getNumeroJugado() %></p><br>
 <p>Nº DE INTENTOS TOTAL: <%= intent.getOrden()%></p>
 
