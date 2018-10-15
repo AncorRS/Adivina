@@ -63,9 +63,6 @@ public class Control extends HttpServlet {
 	}										//TRY CATCH MALO
 	//-------------------------------------------------------------------------------
 	
-	
-	
-	
 	ArrayList<Intento> intentos = (ArrayList<Intento>)sesion.getAttribute("intentosArray");
 	
 	if (sesion.getAttribute("intentosArray") == null) {
@@ -98,17 +95,12 @@ if(op1<20) {
 	
 	intentos.add(intent);
 	
-	
-	
 	re.setAttribute("intent", intent);
-	
-	
 	
 	String base = "/jsp/";
 	String url = base + "index.jsp";
 	String action="";
-	
-	
+		
 	if(intent.getNumeroJugado()==20){
 		
 		sesion.invalidate();
