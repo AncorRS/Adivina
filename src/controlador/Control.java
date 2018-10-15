@@ -35,6 +35,9 @@ public class Control extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest re, HttpServletResponse response) throws ServletException, IOException {
 		
+		//CREAMOS LA SESION Y METEMOS ARRAY(intentos) EN SESION
+		HttpSession sesion=re.getSession(true);	
+		
 		Intento intent=new Intento();	
 		//int op1=0;
 	//--------------------------------------------------------------
@@ -42,15 +45,19 @@ public class Control extends HttpServlet {
 		if(re.getParameter("num1") == null)
 		{
 	     String op = "";
+	     System.out.println("VACÍO");
 	     
 		}
 		else
 		{
 	     String op = re.getParameter("num1");
 	      op1=Integer.parseInt(op);
+	      System.out.println("Envia datos");
+	      //Intento intent=new Intento();
+	      
 		}
 	} catch(NumberFormatException e) {
-		System.out.print("Caught NumberFormatException");
+		System.out.print("NumberFormatException");
 	}finally {
 		//op1=Integer.parseInt(op);
 	}										//TRY CATCH MALO
@@ -58,8 +65,6 @@ public class Control extends HttpServlet {
 	
 	
 	
-	//CREAMOS LA SESION Y METEMOS ARRAY(intentos) EN SESION
-	HttpSession sesion=re.getSession(true);
 	
 	ArrayList<Intento> intentos = (ArrayList<Intento>)sesion.getAttribute("intentosArray");
 	
@@ -105,8 +110,10 @@ if(op1<20) {
 	
 	
 	if(intent.getNumeroJugado()==20){
-		url="/jsp/Correcto.jsp";
+		
 		sesion.invalidate();
+		url="/jsp/Correcto.jsp";
+		
 	}
 			
 	RequestDispatcher requestDispatcher = getServletContext().getRequestDispatcher(url);

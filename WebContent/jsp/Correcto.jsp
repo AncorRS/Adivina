@@ -2,6 +2,9 @@
     pageEncoding="ISO-8859-1"%>
     
     <%@ page import= "modelo.Intento" %> 
+    <%@ page import= "controlador.Control" %>
+    <%@ page import="java.util.*, java.time.LocalDateTime, java.time.*" %>
+    
     
 <!DOCTYPE html>
 <html>
@@ -22,7 +25,12 @@
 
 <img src="img/correct.png" alt="Smiley face" height="142" width="142"><br><br><br>
 
-<p>Nº DE SESIONES TOTAL / Nº DE INTENTOS TOTAL: ${sessionScope.CONTADOR}</p>
+<% session.invalidate(); %>
+
+<!-- NECESITAMOS IMPORTAR EL REQUEST("request") !!!!OJO SOLO FUNCIONA CON ("request") !!PALABRA RESERVADA!!!, ASIGNARLO A UNA NUEVA VARIABLE Y LUEGO ASIGNARLE EL METODO DEL BEAN "Intento" -->
+<% Intento intent = (Intento)request.getAttribute("intent"); %>
+<p>EL NUMERO CORRECTO ES: <%= intent.getNumeroJugado() %></p><br>
+<p>Nº DE INTENTOS TOTAL: <%= intent.getOrden()%></p>
 
 </center>
 </body>
