@@ -95,7 +95,7 @@ if(op1<20) {
 	
 	intentos.add(intent);
 	
-	re.setAttribute("intent", intent);
+	//re.setAttribute("intent", intent);
 	
 	String base = "/jsp/";
 	String url = base + "index.jsp";
